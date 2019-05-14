@@ -33,6 +33,6 @@ spec:
         - name: pipeline-docker-registry
       containers:
         - name: app
-          image: mywebsite:latest
+          image: mywebsite
           ports:
             - containerPort: 80
