@@ -33,7 +33,7 @@ spec:
         - name: pipeline-docker-registry
       containers:
         - name: app
-          image: ${CICD_IMAGE}:{CICD_EXECUTION_SEQUENCE}
+          image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
           imagePullPolicy: Always
           ports:
             - containerPort: 80
