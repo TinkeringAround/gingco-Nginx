@@ -1,14 +1,14 @@
 stages:
-- name: Build Image
-  steps:
-  - publishImageConfig:
-      dockerfilePath: ./Dockerfile
-      buildContext: .
-      tag: gingco/hello-world-nginx
-      registry: 127.0.0.1:34070
-- name: Deployment
-  steps:
-  - applyYamlConfig:
-      path: ./deployment/deployment.yaml
+  - name: Build Image
+    steps:
+      - publishImageConfig:
+          dockerfilePath: ./Dockerfile
+          buildContext: .
+          tag: gingco-nginx
+          registry: 127.0.0.1:34070
+  - name: Deployment
+    steps:
+      - applyYamlConfig:
+          path: ./deployment/deployment.yaml
 timeout: 60
 notification: {}
