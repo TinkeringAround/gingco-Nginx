@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: website
+  name: website-service
 spec:
   type: NodePort
   ports:
@@ -11,27 +11,27 @@ spec:
       targetPort: 80
       nodePort: 30000
   selector:
-    app: website
+    app: website-service
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx
+  name: website
 spec:
   selector:
     matchLabels:
-      app: nginx
+      app: website
   replicas: 1
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: nginx
+        app: website
     spec:
       containers:
-        - name: nginx
-          image: nginx:prelive
+        - name: website
+          image: website:prelive
           imagePullPolicy: Always
           ports:
             - containerPort: 80

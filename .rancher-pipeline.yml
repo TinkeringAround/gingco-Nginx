@@ -4,8 +4,7 @@ stages:
       - publishImageConfig:
           dockerfilePath: ./Dockerfile
           buildContext: .
-          tag: nginx:prelive
-          registry: 127.0.0.1:34070
+          tag: website:prelive
   - name: Deployment
     steps:
       - applyYamlConfig:
