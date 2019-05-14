@@ -5,7 +5,6 @@ stages:
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: website:prelive
-      pushRemote: true
       registry: 127.0.0.1:34070
 - name: Deployment
   steps:
