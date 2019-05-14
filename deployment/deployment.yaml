@@ -33,6 +33,6 @@ spec:
         - name: pipeline-docker-registry
       containers:
         - name: app
-          image: mywebsite
+          image: ${CICD_IMAGE}:prelive
           ports:
             - containerPort: 80

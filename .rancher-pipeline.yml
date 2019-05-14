@@ -4,7 +4,7 @@ stages:
       - publishImageConfig:
           dockerfilePath: ./Dockerfile
           buildContext: .
-          tag: mywebsite
+          tag: mywebsite:prelive
   - name: Deployment
     steps:
       - applyYamlConfig:
