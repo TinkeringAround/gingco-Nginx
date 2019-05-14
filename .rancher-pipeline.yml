@@ -1,0 +1,12 @@
+stages:
+- name: Build
+  steps:
+  - runScriptConfig:
+      image: node:latest
+      shellScript: docker build -t gingco/hello-world-nginx .
+- name: Deploy
+  steps:
+  - applyYamlConfig:
+      path: ./deployment.yaml
+timeout: 60
+notification: {}
