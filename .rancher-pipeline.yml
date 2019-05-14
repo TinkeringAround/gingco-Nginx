@@ -1,10 +1,12 @@
 stages:
-- name: Build
+- name: Build Image
   steps:
-  - runScriptConfig:
-      image: node:latest
-      shellScript: docker build -t gingco/hello-world-nginx .
-- name: Deploy
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: gingco/hello-world-nginx
+      registry: 127.0.0.1:34070
+- name: Deployment
   steps:
   - applyYamlConfig:
       path: ./deployment.yaml
