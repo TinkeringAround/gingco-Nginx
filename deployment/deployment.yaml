@@ -31,7 +31,7 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: gingco-nginx
+          image: nginx:prelive
           imagePullPolicy: Always
           ports:
             - containerPort: 80
