@@ -11,7 +11,7 @@ spec:
       targetPort: 80
       nodePort: 30000
   selector:
-    app: website
+    name: app
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -20,14 +20,14 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: app
+      name: app
   replicas: 1
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: app
+        name: app
     spec:
       imagePullSecrets:
         - name: pipeline-docker-registry
