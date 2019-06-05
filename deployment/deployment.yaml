@@ -29,11 +29,9 @@ spec:
       labels:
         name: app
     spec:
-      imagePullSecrets:
-        - name: pipeline-docker-registry
       containers:
         - name: app
-          image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
+          image: registry.gitlab.gingco.net/t.maier/pipeline
           imagePullPolicy: Always
           ports:
             - containerPort: 80
@@ -57,3 +55,5 @@ spec:
             periodSeconds: 10
             successThreshold: 1
             timeoutSeconds: 1
+      imagePullSecret:
+        - name: gitlab-docker
